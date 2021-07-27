@@ -1,7 +1,7 @@
 ### Motivation
 Stream in real-time the MySQL database events, such as CRUD and DDL. That may be useful for building Data Warehouse, integration with monolith application on the database level, etc.
 
-### Example 
+### Example
 ```scala
 MysqlBinlogStream
               .rawEvents[IO](binlogClient)
@@ -12,7 +12,7 @@ Refer to [examples](mysql-binlog-stream-examples) for complete snippet
 
 ### How to build and launch example
 
-- build docker image 
+- build docker image
 ```shell script
 sbt "project mysql-binlog-stream-examples" clean  "docker:publishLocal"
 ```
@@ -22,16 +22,16 @@ cd mysql-binlog-stream-examples
 docker-compose -f docker-compose-mysql-it-mac.yaml up
 ```
 - open new console
-- in new console 
+- in new console
 ```shell script
 mysql -u 'root' --host=0.0.0.0 --port=3307 --password=''
-``` 
+```
 - try to insert new row in `SKU` or `VARIANT` table
 ```mysql
 use test;
 insert into sku(id, sku) values(3, '123');
 ```
-- in the `docker-compose` console you should see 
+- in the `docker-compose` console you should see
 ```shell script
 example_1  | 02:35:58.734 [ioapp-compute-2] INFO application - received EventMessage(sku,1589596558000,create,8908ecfb63e4-bin.000007,415,true,{
 example_1  |   "id" : 3
@@ -136,11 +136,10 @@ Truncate:
 - Scala
 - FS2 Functional Streams for Scala
 - circe - json streaming encoder/decoder
-- doobie - database integration layer 
+- doobie - database integration layer
 
 ## Support
 
 ![YourKit Image](https://www.yourkit.com/images/yklogo.png "YourKit")
 
 This project is supported by YourKit with monitoring and profiling Tools. YourKit supports open source with innovative and intelligent tools for monitoring and profiling Java and .NET applications. YourKit is the creator of [YourKit Java Profiler](https://www.yourkit.com/java/profiler/), [YourKit .NET Profiler](https://www.yourkit.com/.net/profiler/), and [YourKit YouMonitor](https://www.yourkit.com/youmonitor/).
-
