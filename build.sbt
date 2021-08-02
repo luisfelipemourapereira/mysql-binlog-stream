@@ -47,6 +47,8 @@ lazy val commonSettings = Seq(
   addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1")
 )
 
+/* throw new RuntimeException(s"$baseDirectory.value") */
+
 lazy val noPublishSettings = Seq(
   publish         := {},
   publishLocal    := {},
