@@ -2,3 +2,6 @@ export DB_HOST='String'
 export DB_PORT='Int'
 export DB_USER='String'
 export DB_PASSWORD='String'
+export USE_SSL='Boolean'
+# aka table name
+export DB_SCHEMA='String'
