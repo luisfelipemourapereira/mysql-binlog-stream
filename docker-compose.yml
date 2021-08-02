@@ -10,12 +10,9 @@ services:
       retries: 24
     environment:
       MYSQL_DATABASE: test
-      MYSQL_ROOT_PASSWORD: letmein
-      # MYSQL_ROOT_PASSWORD: letmein
-      # MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
     command: 'mysqld --log-bin --server-id=1 --binlog-format=ROW'
     ports:
       - "3306:3306"
-    # volumes:
-    #   - "$HOME/.mysql/raynor:/var/lib/mysql"
-    #   - "./vendor/jenkins/mysql:/etc/mysql/conf.d"
+    volumes:
+      - "./events/init/init.sql:/docker-entrypoint-initdb.d/1.sql"
