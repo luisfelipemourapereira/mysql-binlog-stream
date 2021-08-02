@@ -90,6 +90,18 @@ lazy val `mysql-binlog-stream-examples` =
     .dependsOn(`binlog-stream`)
     .enablePlugins(JavaAppPackaging)
 
+lazy val `events` =
+  (project in file("events"))
+    .settings(
+      commonSettings,
+      dockerPublishSettings,
+      noPublishSettings,
+      Dependencies.Config,
+      Dependencies.XML
+    )
+    .dependsOn(`binlog-stream`)
+    .enablePlugins(JavaAppPackaging)
+
 lazy val `mysql-binlog-stream-shared` = (project in file("mysql-binlog-stream-shared"))
   .settings(
     commonSettings,

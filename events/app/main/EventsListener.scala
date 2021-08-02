@@ -13,7 +13,7 @@ import io.laserdisc.mysql.binlog.models.SchemaMetadata
 import io.laserdisc.mysql.binlog.stream.{ streamEvents, MysqlBinlogStream, TransactionState }
 import io.laserdisc.mysql.binlog.{ client, database }
 
-object BinLogListener extends IOApp {
+object EventListener extends IOApp {
 
   override def run(args: List[String]): IO[ExitCode] = {
     val conf =

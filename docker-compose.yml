@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.6
+    container_name: binlog_sql
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u root
+      interval: 5s
+      timeout: 120s
+      retries: 24
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: letmein
+      # MYSQL_ROOT_PASSWORD: letmein
+      # MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    command: 'mysqld --log-bin --server-id=1 --binlog-format=ROW'
+    ports:
+      - "3306:3306"
+    # volumes:
+    #   - "$HOME/.mysql/raynor:/var/lib/mysql"
+    #   - "./vendor/jenkins/mysql:/etc/mysql/conf.d"
